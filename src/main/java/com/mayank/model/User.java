@@ -65,6 +65,22 @@ public class User {
 		return Objects.hash(creditCard, email, name, transactions, userId);
 	}
 
-	
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		User other = (User) obj;
+		return Objects.equals(creditCard, other.creditCard) && Objects.equals(email, other.email)
+				&& Objects.equals(name, other.name) && Objects.equals(userId, other.userId);
+	}
+
+	@Override
+	public String toString() {
+		return "User [userId=" + userId + ", name=" + name + ", email=" + email + ", creditCard=" + creditCard + "]";
+	}
 
 }
